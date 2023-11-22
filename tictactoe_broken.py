@@ -67,17 +67,21 @@ def add_piece(game, player, row, column):
     row: 0-index row
     column: 0-index column
     """
-    game[row][column+1] = player
+    game[row][column] = player # Removed +1 from column to make the user guess start from 1 only
     return game
 
 def check_space_empty(game, row, column):
-    return game[row][column] == 0
-
+    if game[row][column] == 0:
+        return game[row][column] == 0
+    else:
+        print("That space is already occupied, please choose another spot!") # Added a print statement to give better directions to users
+        return
+    
 def convert_input_to_coordinate(user_input):
     return user_input - 1
 
 def switch_player(player):
-    if player = 1:
+    if player == 1: # Changed = to == so it can accurately evaluate
         return 2
     else:
         return 1
@@ -98,12 +102,12 @@ if __name__ == '__main__':
     while winner == 0 and moves_exist(game):
         print("Currently player: " + str(player))
         available = False
-        while not available
+        while not available: # Added colon to fix the loop
             row = convert_input_to_coordinate(int(input("Which row? (start with 1) ")))
             column = convert_input_to_coordinate(int(input("Which column? (start with 1) ")))
-            available = check_space_empty(game, row)
+            available = check_space_empty(game, row, column) # Added the third required argument (column)
         game = add_piece(game, player, row, column)
         display_game(game)
         player = switch_player(player)
-#        winner = check_winner(game)
+        winner = check_winner(game) # Uncommented this line so it actually checks for winner
     display_winner(winner)

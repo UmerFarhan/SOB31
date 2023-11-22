@@ -21,36 +21,35 @@
 
 exam_one = int(input("Input exam grade one: "))
 
-exam_two = input("Input exam grade two: "))
+exam_two = int(input("Input exam grade two: ")) # Changed input to int
 
-exam_3 = str(input("Input exam grade three: "))
+exam_three = int(input("Input exam grade three: ")) # Changed variable name to exam_three and changed input type to int
 
-grades = [exam_one exam_two exam_three]
+grades = [exam_one, exam_two, exam_three] # Added commas between the variables in list
 sum = 0
-for grade in grade:
+for grade in grades: # Fixed loop by changing grade to grades
   sum = sum + grade
 
-avg = sum / len(grdes)
+avg = sum / len(grades) # Fixed spelling mistake
 
 if avg >= 90:
     letter_grade = "A"
-elif avg >= 80 and avg < 90
+elif avg >= 80 and avg < 90: # Added colon to fix statement
     letter_grade = "B"
 elif avg > 69 and avg < 80:
-    letter_grade = "C'
+    letter_grade = "C" # Fixed mismatching closing quotes
 elif avg <= 69 and avg >= 65:
     letter_grade = "D"
-elif:
+else: # Changed elif to else
     letter_grade = "F"
 
-for grade in grades:
-    print("Exam: " + str(grade))
+print("Exams: " + str(grades[0]) + ", " + str(grades[1]) + ", " + str(grades[2])) # Added the grades inputted to the print statement to match output cases
 
-    print("Average: " + str(avg))
+print("Average: " + str(avg))
 
-    print("Grade: " + letter_grade)
+print("Grade: " + letter_grade)
 
-if letter-grade is "F":
-    print "Student is failing."
+if letter_grade == "F": # Changed letter-grade to letter_grade and changed comparator to == instead of is
+    print("Student is failing.") # Added parenthesis
 else:
-    print "Student is passing."
+    print("Student is passing.") # Added parenthesis
